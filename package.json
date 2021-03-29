@@ -1,0 +1,24 @@
+{
+  "name": "openerd",
+  "version": "1.0.0",
+  "description": "Generate ER Diagram from yaml",
+  "main": "index.js",
+  "bin": "cli/index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yosiopp/openerd.git"
+  },
+  "keywords": [
+    "OpenERD",
+    "erd",
+    "yaml",
+    "cli"
+  ],
+  "author": "yosiopp",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/yosiopp/openerd/issues"
+  },
+  "homepage": "https://github.com/yosiopp/openerd#readme"
+}
