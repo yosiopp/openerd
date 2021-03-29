@@ -1,0 +1,131 @@
+type: object
+required: [openerd]
+properties:
+  openerd:
+    type: string
+    pattern: "^1\\.0\\.0$"
+  info:
+    type: object
+    properties:
+      title:
+        type: string
+      version:
+        type: string
+      description:
+        type: string
+      contact:
+        type: object
+        properties:
+          name:
+           type: string
+          url:
+           type: string
+          email:
+           type: string
+      database:
+        type: array
+        items:
+          type: string
+          pattern: "mysql"
+  entities:
+    type: array
+    items:
+      type: object
+      required: [name]
+      properties:
+        name:
+          type: string
+        summary:
+          type: string
+        tag:
+          type: string
+        attributes:
+          type: array
+          items:
+            type: object
+            required: [name, type]
+            properties:
+              name:
+                type: string
+              summary:
+                type: string
+              type:
+                type: string
+              primary:
+                type: boolean
+              required:
+                type: boolean
+              default:
+                type: string
+              options:
+                type: array
+                items:
+                  type: string
+        relations:
+          type: array
+          items:
+            type: object
+            properties:
+              target:
+                type: string
+              reference:
+                type: string
+              cardinality:
+                type: string
+                pattern: "^(1|0\\.\\.1|1\\.\\.\\*|0\\.\\.\\*)-(1|0\\.\\.1|1\\.\\.\\*|0\\.\\.\\*)$"
+              layout:
+                type: object
+                properties:
+                  x:
+                    type: number
+                    minimum: 0
+                  y:
+                    type: number
+                    minimum: 0
+                  color:
+                    type: string
+                    pattern: "^#[0-9a-fA-F]{6}$"
+        indecies:
+          type: array
+          items:
+            type: object
+            required: [name, fields]
+            properties:
+              name:
+                type: string
+              unique:
+                type: boolean
+              fields:
+                type: array
+                items:
+                  type: string
+        layout:
+          type: object
+          properties:
+            x:
+              type: number
+              minimum: 0
+            y:
+              type: number
+              minimum: 0
+            width:
+              type: number
+              minimum: 1
+            height:
+              type: number
+              minimum: 1
+            color:
+              type: string
+              pattern: "^#[0-9a-fA-F]{6}$"
+            elevation:
+              type: number
+
+tags:
+  type: array
+  items:
+    type: string
+
+options:
+  type: object
+  patternProperties: "^[a-zA-Z][-a-zA-Z0-9]*$"
+

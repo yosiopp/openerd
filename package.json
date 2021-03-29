@@ -4,7 +4,9 @@
   "description": "Generate ER Diagram from yaml",
   "main": "index.js",
   "bin": "cli/index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "mocha tests --recursive"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/yosiopp/openerd.git"
@@ -20,5 +22,11 @@
   "bugs": {
     "url": "https://github.com/yosiopp/openerd/issues"
   },
-  "homepage": "https://github.com/yosiopp/openerd#readme"
+  "homepage": "https://github.com/yosiopp/openerd#readme",
+  "devDependencies": {
+    "@hyperjump/json-schema": "^0.17.0",
+    "chai": "^4.3.4",
+    "mocha": "^8.3.2",
+    "yaml": "^1.10.2"
+  }
 }
