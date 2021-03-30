@@ -19,6 +19,10 @@ let procno = 0;
     // 入力の取得
     procno = 2;
     const input = getInput(options);
+    if (input.length === 0) {
+      // 入力なし
+      throw { message: 'input error' };
+    }
     
     // yamlの検証
     procno = 3;
@@ -60,16 +64,15 @@ function parseArguments(argv) {
 }
 
 function getInput(options) {
-  return `
-openerd: 1.0.0
-info:
-  title: test
-`;
-
   if (options.input === 'stdin' || options.input === '-') {
-    // TODO 標準入力
+    // 標準入力
+    if (process.stdin.isTTY) {
+      return '';
+    } else {
+      return fs.readFileSync('/dev/stdin', 'utf8');
+    }
   } else {
     // ファイル入力
-    return fs.readFileSync(options.input, { encoding: 'utf-8' });
+    return fs.readFileSync(options.input, 'utf8');
   }
 }

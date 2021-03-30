@@ -10,9 +10,6 @@ exports.validate = (input) => {
   const ajv = new Ajv(); 
   const validate = ajv.compile(schema);
   const valid = validate(data);
-  if (!valid) {
-    console.error(2, validate.errors);
-  }
   return [valid, valid ? data : validate.errors];
 }
 
